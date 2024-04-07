@@ -1,2 +1,3 @@
-# knowledge
-Documentation about processes and conventions of the organization
+# Knowledge
+
+Documentation about processes, preferences, and code conventions used by WiMetrix
