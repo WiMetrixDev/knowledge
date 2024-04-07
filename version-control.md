@@ -5,6 +5,7 @@
 - How Git Works
 - Branches
 - Commits
+  - Atomic Commits
 - Commit Messages
   - General Conventions
   - Org-Level Conventions
