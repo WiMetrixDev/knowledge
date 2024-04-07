@@ -6,6 +6,8 @@
 - Branches
 - Commits
 - Commit Messages
+  - General Conventions
+  - Org-Level Conventions
 - Pull Requests
 
 # GitHub
