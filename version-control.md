@@ -20,3 +20,6 @@
 - SSH Keys
 - Commit Signing
 - GH CLI
+- Actions
+- Issues
+- Releases
