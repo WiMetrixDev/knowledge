@@ -40,6 +40,8 @@ Hosted remotes like GitHub also provide access to the repo through a web browser
 
 ### How Git Works
 
+![how git works comic](./assets/xkcd-1597.png)
+
 - Git tracks your files using **“snapshots”**, records
   of the files in your project at a given point
   in time
@@ -49,8 +51,6 @@ Hosted remotes like GitHub also provide access to the repo through a web browser
   - _“I commited code”_ and _“I just made a new commit”_
 - Have the ability to go back and visit any commit
 - A project is made up of a bunch of commits
-
-![how git works comic](./assets/xkcd-1597.png)
 
 ### Terminology
 
@@ -149,7 +149,7 @@ git push origin main
 7. Wrap the body at 72 characters
 8. Use the body to explain what and why vs. how
 
-- Org-Level Conventions
+> In addition to the general commit guidelines, organizations and projects can have their own preferences and conventions for commit messages
 
 ### Branches
 
@@ -161,15 +161,6 @@ git push origin main
 - Each branch is a separate different version of the repo
 - The default branch is called `master` or `main`
 - One branch can be **merged** into another
-
-### Further Reading
-
-- [https://www.rithmschool.com/courses/git](https://www.rithmschool.com/courses/git)
-- [https://www.codecademy.com/learn/learn-git](https://www.codecademy.com/learn/learn-git)
-- [https://missing.csail.mit.edu/2020/version-control](https://missing.csail.mit.edu/2020/version-control)
-- [https://ohshitgit.com](https://ohshitgit.com)
-- [https://jvns.ca/blog/2024/01/26/inside-git](https://jvns.ca/blog/2024/01/26/inside-git)
-- [https://jvns.ca/blog/2024/03/08/how-head-works-in-git](https://jvns.ca/blog/2024/03/08/how-head-works-in-git)
 
 ### Overview
 
@@ -210,6 +201,15 @@ git reset --hard origin/dev
 ```
 
 ![git overview 7](assets/git-breakdown-7.jpg)
+
+### Further Reading
+
+- [https://www.rithmschool.com/courses/git](https://www.rithmschool.com/courses/git)
+- [https://www.codecademy.com/learn/learn-git](https://www.codecademy.com/learn/learn-git)
+- [https://missing.csail.mit.edu/2020/version-control](https://missing.csail.mit.edu/2020/version-control)
+- [https://ohshitgit.com](https://ohshitgit.com)
+- [https://jvns.ca/blog/2024/01/26/inside-git](https://jvns.ca/blog/2024/01/26/inside-git)
+- [https://jvns.ca/blog/2024/03/08/how-head-works-in-git](https://jvns.ca/blog/2024/03/08/how-head-works-in-git)
 
 ## GitHub
 
