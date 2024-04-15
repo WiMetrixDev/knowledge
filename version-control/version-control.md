@@ -217,8 +217,10 @@ git reset --hard origin/dev
 
 - A proposal to merge a set of changes from one branch into another
 - Includes a title and description
-- You can discuss and review the potential changes with collaborators
+- Proposed changes can be discussed with and reviewed by other collaborators
+- Reviewers can request changes required to satisfy requirements/standards
 - Follow-up commits are added in response to feedback
+- If given the green light by reviewers, the pull-request is merged
 
 ### README.md
 
@@ -228,15 +230,26 @@ git reset --hard origin/dev
 - Can include information about code structure and standards
 - Can include functional breakdown and even documentation
 
-- Accepting Invites
-- SSH Keys
-- Commit Signing
-- GH CLI
-- Actions
-- Issues
-- Releases
+### SSH Keys
+
+### Commit Signing
+
+### GH CLI
+
+### Actions
+
+### Issues
+
+### Releases
+
+### Accepting Invites
+
+[https://bit.ly/accepting-invites](https://bit.ly/accepting-invites)
+
+![QR Code](assets/invite-qr.jpeg)
 
 # Misc
 
-- Two-Factor Authentication (2FA)
-- Password Managers
+## Two-Factor Authentication (2FA)
+
+## Password Managers
