@@ -138,7 +138,7 @@ git push origin main
 
 ![git commit messages comic](./assets/xkcd-1296.png)
 
-[https://cbea.ms/git-commit/](https://cbea.ms/git-commit/)
+> [https://cbea.ms/git-commit/](https://cbea.ms/git-commit/)
 
 2. Separate subject from body with a blank line
 3. Limit the subject line to 50 characters
@@ -213,6 +213,11 @@ git reset --hard origin/dev
 
 ## GitHub
 
+- A website for storing your git projects
+- Users can have personal repositories, both public and private
+- Organizations can have repositories with fine-grained access control
+- Alternatives: BitBucket, GitLab
+
 ### Pull Requests
 
 - A proposal to merge a set of changes from one branch into another
@@ -232,15 +237,22 @@ git reset --hard origin/dev
 
 ### SSH Keys
 
-### Commit Signing
+> [https://docs.github.com/en/authentication](https://docs.github.com/en/authentication)
 
-### GH CLI
+- Secure Shell Protocol
+- Cryptographic network protocol for secure access over insecure network
+- username/password authentication can be cumbersome and insecure. Doubly so when using 2FA.
+- Makes using multiple accounts trivial
+- Access to an SSH key can be easily revoked
+- Simplifies **Commit Signing**, verifying that the commit came from a trusted source
 
-### Actions
+### Other Offerings
 
-### Issues
-
-### Releases
+- Actions - Automate your workflows. (Tests, linting, CI/CD)
+- Issues - Keeping track of bugs, feature requests, and ongoing work
+- Releases - Automatically create and share build artifacts and setups
+- Projects
+- The GH cli - Embrace the terminal
 
 ### Accepting Invites
 
@@ -250,6 +262,5 @@ git reset --hard origin/dev
 
 # Misc
 
-## Two-Factor Authentication (2FA)
-
-## Password Managers
+- Two-Factor Authentication (2FA)
+- Password Managers
