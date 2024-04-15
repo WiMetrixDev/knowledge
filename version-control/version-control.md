@@ -2,7 +2,7 @@
 
 ## What is Version Control
 
-![version control comic](./version-control-comic.jpg)
+![version control comic](./assets/version-control-comic.jpg)
 
 - A system that manages and keeps records of changes made to files
 - Allows for collaboration
@@ -10,7 +10,7 @@
 - Allows you to revert changes and go back to a previous state
 - Useful beyond code/programming
 
-![version control diagram](./version-control-vs-traditional.jpg)
+![version control diagram](./assets/version-control-vs-traditional.jpg)
 
 ## Git
 
@@ -36,7 +36,7 @@ Hosted remotes like GitHub also provide access to the repo through a web browser
 - Many available GUIs. (**Github Desktop**, **GitKraken**, Internal IDE tooling)
 - Web UIs by remote repo providers like **GitHub**
 
-![git interfaces](git-interfaces.jpg)
+![git interfaces](./assets/git-interfaces.jpg)
 
 ### How Git Works
 
@@ -50,7 +50,7 @@ Hosted remotes like GitHub also provide access to the repo through a web browser
 - Have the ability to go back and visit any commit
 - A project is made up of a bunch of commits
 
-![how git works comic](xkcd-1597.png)
+![how git works comic](./assets/xkcd-1597.png)
 
 ### Terminology
 
@@ -77,9 +77,11 @@ Hosted remotes like GitHub also provide access to the repo through a web browser
 - The process of adding your local changes to a remote repo
   is called **pushing** changes
 
-![git push and pull part 1](push-and-pull-1.jpg)
-![git push and pull part 2](push-and-pull-2.jpg)
-![git push and pull part 3](push-and-pull-3.jpg)
+![git push and pull part 1](./assets/push-and-pull-1.jpg)
+
+![git push and pull part 2](./assets/push-and-pull-2.jpg)
+
+![git push and pull part 3](./assets/push-and-pull-3.jpg)
 
 ### Commits
 
@@ -134,7 +136,7 @@ git push origin main
 
 #### Commit Messages
 
-![git commit messages comic](xkcd-1296.png)
+![git commit messages comic](./assets/xkcd-1296.png)
 
 [https://cbea.ms/git-commit/](https://cbea.ms/git-commit/)
 
@@ -151,7 +153,7 @@ git push origin main
 
 ### Branches
 
-![branches](./branches.png)
+![branches](./assets/branches.jpg)
 
 - A group of commits
 - All commits live on a branch
@@ -168,6 +170,46 @@ git push origin main
 - [https://ohshitgit.com](https://ohshitgit.com)
 - [https://jvns.ca/blog/2024/01/26/inside-git](https://jvns.ca/blog/2024/01/26/inside-git)
 - [https://jvns.ca/blog/2024/03/08/how-head-works-in-git](https://jvns.ca/blog/2024/03/08/how-head-works-in-git)
+
+### Overview
+
+![git overview 1](assets/git-breakdown-1.jpg)
+
+```bash
+echo 'hello world!' > example.txt
+```
+
+![git overview 2](assets/git-breakdown-2.jpg)
+
+```bash
+git add example.txt
+```
+
+![git overview 3](assets/git-breakdown-3.jpg)
+
+```bash
+git commit -m 'Add example.txt'
+```
+
+![git overview 4](assets/git-breakdown-4.jpg)
+
+```bash
+git push origin dev
+```
+
+![git overview 5](assets/git-breakdown-5.jpg)
+
+```bash
+git reset HEAD~3
+```
+
+![git overview 6](assets/git-breakdown-6.jpg)
+
+```bash
+git reset --hard origin/dev
+```
+
+![git overview 7](assets/git-breakdown-7.jpg)
 
 ## GitHub
 
