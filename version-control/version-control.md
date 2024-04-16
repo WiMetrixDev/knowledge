@@ -286,4 +286,26 @@ An extra layer of security for your online accounts that requires two forms of i
 - Security Key - Physical device that plugs into your computer or phone to generate login codes (Most secure option)
 - Biometrics - Fingerprint, iris scan, or facial recognition. (Convenient but may not be available for all services)
 
+**Recommended**: 2FAS (Google Authenticator, Microsoft Authenticator)
+
 ## Password Managers
+
+Password managers are secure applications that help you generate, store, and manage strong, unique passwords for all your online accounts.
+
+**What they do:**
+
+- Generate strong, random passwords for each website or service.
+- Securely store your passwords behind a single master password.
+- Automatically fill in login credentials on websites and apps.
+- Can store secure notes and other sensitive information like bank accounts, backup codes
+
+**Why use a password manager?**
+
+- **Stronger Passwords**: Eliminates the risk of weak and duplicate passwords
+- **Improved Security**: Reduces the chance of hacking due to password breaches
+- **Convenience**: Auto-fill saves time and frustration by entering login details automatically
+- **Organization**: Keeps all your passwords in one secure place
+- **Security Features**: Many offer additional features like two-factor authentication and secure password sharing
+- **Cross-Platform Support**: Access your passwords from any device with the password manager app
+
+**Recommended**: BitWarden
