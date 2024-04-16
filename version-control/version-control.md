@@ -24,16 +24,15 @@
 
 ### Distributed
 
-All _contributors_ have a copy of the repo, with all files and the full history.
-
-Contributors sync their repos **through** the use of a central remote repo, e.g. **GitHub**.
-
-Hosted remotes like GitHub also provide access to the repo through a web browser.
+- All _contributors_ have a copy of the repo, with all files and the full history.
+- Contributors sync their repos through the use of a central remote repo, e.g. **GitHub**.
+- Hosted remotes like GitHub also provide access to the repo through a web browser.
 
 ### Interface
 
 - Command Line Interface by default
-- Many available GUIs. (**Github Desktop**, **GitKraken**, Internal IDE tooling)
+- Many available GUIs. (**Github Desktop**, **GitKraken**)
+- Integrated IDE tooling
 - Web UIs by remote repo providers like **GitHub**
 
 ![git interfaces](./assets/git-interfaces.jpg)
@@ -85,16 +84,19 @@ Hosted remotes like GitHub also provide access to the repo through a web browser
 
 ### Commits
 
-Commits contain 3 pieces of information:
-
-1. Commit Message - Information about the changes from the previous commit
-2. A reference to the previous commit, AKA the parent commit
-3. An SHA-1 hash code (e.g. `fb2d2ec5069fc6776c80b3ad6b7cbde3cade4e`)
+- Commits are snapshots of your project state at specific points in time
+- Basic unit for tracking changes in git
+- Commits contain 3 pieces of information:
+  1. Commit Message - Information about the changes from the previous commit
+  2. A reference to the previous commit, AKA the parent commit
+  3. An SHA-1 hash code (e.g. `fb2d2ec5069fc6776c80b3ad6b7cbde3cade4e`)
 
 #### Sha-what?
 
 - Hashing is the process of transforming any given key or a string of characters into another value. Typically a shorter, fixed-length value
-- SHA-1 is a hashing algorithm. It takes some data as input and generates a **unique** 40 character string from it.
+- SHA-1 is a hashing algorithm
+- It takes some data as input and generates a **unique** 40 character string
+- The string uniquely identifies each commit
 
 #### Atomic Commits
 
@@ -140,14 +142,14 @@ git push origin main
 
 > [https://cbea.ms/git-commit/](https://cbea.ms/git-commit/)
 
-2. Separate subject from body with a blank line
-3. Limit the subject line to 50 characters
-4. Capitalize the subject line
-5. Do not end the subject line with a period
-6. Use the imperative mood in the subject line
+1. Separate subject from body with a blank line
+2. Limit the subject line to 50 characters
+3. Capitalize the subject line
+4. Do not end the subject line with a period
+5. Use the imperative mood in the subject line
    - If applied, this commit will "your commit message"
-7. Wrap the body at 72 characters
-8. Use the body to explain what and why vs. how
+6. Wrap the body at 72 characters
+7. Use the body to explain what and why vs. how
 
 > In addition to the general commit guidelines, organizations and projects can have their own preferences and conventions for commit messages
 
