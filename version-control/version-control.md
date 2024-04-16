@@ -216,6 +216,7 @@ git reset --hard origin/dev
 - A website for storing your git projects
 - Users can have personal repositories, both public and private
 - Organizations can have repositories with fine-grained access control
+- Home to _many_ open-source projects
 - Alternatives: BitBucket, GitLab
 
 ### Pull Requests
