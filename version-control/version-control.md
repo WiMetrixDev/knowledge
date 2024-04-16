@@ -262,5 +262,28 @@ git reset --hard origin/dev
 
 # Misc
 
-- Two-Factor Authentication (2FA)
-- Password Managers
+## Two-Factor Authentication (2FA)
+
+**What it is:**
+
+An extra layer of security for your online accounts that requires two forms of identification to log in.
+
+**How it works:**
+
+- 1st Factor: Something you know, like your password or PIN.
+- 2nd Factor: Something you have, like your phone, a security key, or biometrics (fingerprint, face recognition).
+
+**Why use it?**
+
+- Adds an extra hurdle for malicious actors, even if they steal your password
+- Keep sensitive information like financial records secure
+
+**Methods of 2FA**
+
+- SMS Passcode - A one-time code sent via text message to your phone. (Convenient but insecure. Susceptible to sim swapping attacks)
+- Authenticator App - Generates time-based one-time codes on your phone with an app (More secure than SMS)
+- Push Notification - Approve login attempts directly from your phone with a tap (Convenient and secure for some services)
+- Security Key - Physical device that plugs into your computer or phone to generate login codes (Most secure option)
+- Biometrics - Fingerprint, iris scan, or facial recognition. (Convenient but may not be available for all services)
+
+## Password Managers
