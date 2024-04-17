@@ -127,7 +127,7 @@ git add .
 - Add a commit with a commit message
 
 ```bash
-git commit -m 'Add `example.txt` file
+git commit -m 'Add `example.txt` file'
 ```
 
 - (Optional) Push the changes to remote
@@ -160,7 +160,7 @@ git push origin main
 - A group of commits
 - All commits live on a branch
 - There can be many branches, but each repo must have one default branch
-- Each branch is a separate different version of the repo
+- Each branch is a different version of the repo
 - The default branch is called `master` or `main`
 - One branch can be **merged** into another
 
@@ -203,6 +203,18 @@ git reset --hard origin/dev
 ```
 
 ![git overview 7](assets/git-breakdown-7.jpg)
+
+```bash
+git switch main
+```
+
+![git overview 7](assets/git-breakdown-8.jpg)
+
+```bash
+git pull origin dev
+```
+
+![git overview 7](assets/git-breakdown-9.jpg)
 
 ### Further Reading
 
@@ -284,6 +296,7 @@ An extra layer of security for your online accounts that requires two forms of i
 **Methods of 2FA**
 
 - SMS Passcode - A one-time code sent via text message to your phone. (Convenient but insecure. Susceptible to sim swapping attacks)
+- Email - Send a link to your email with a one-time code. (More secure than SMS)
 - Authenticator App - Generates time-based one-time codes on your phone with an app (More secure than SMS)
 - Push Notification - Approve login attempts directly from your phone with a tap (Convenient and secure for some services)
 - Security Key - Physical device that plugs into your computer or phone to generate login codes (Most secure option)
