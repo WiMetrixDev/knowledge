@@ -68,6 +68,19 @@ Frontend applications authenticate directly with KeyCloak thorough Openid-compli
 - Go to `Realm Settings > Token > Refresh Tokens`
   - Set `Revoke Refresh Token` to `true`
   - Set `Refresh Token Max Reuse` to `1`
+- Add a client scope called groups, to return the user's groups in user info routes
+  - Type should stay none and it should not be included in the token scope.
+  - Add a `Group Membership` mapper called groups (it is not present in predefined mappers)
+  - Add to Token claim `groups`
+  - Add the scope to `user info` and `token introspectino`
+- Add a client scope called user_id, to return the user's id in user info routes
+  - Type should stay none and it should not be included in the token scope.
+  - Add a `User Property` mapper (it is not present in predefined mappers)
+  - Add to Token claim `user_id`
+  - Add the scope to `user info` and `token introspectino`
+- Go to the Client Scope called `roles`
+  - open the `realm roles` mapper
+  - Set `Add to access token` to `true`
 
 ## REST Services
 
