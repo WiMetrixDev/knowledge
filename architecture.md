@@ -154,6 +154,8 @@ Use Role-Based Access Control (RBAC) by combining `Roles`, `Groups`, and `Users`
   - `Roles` can also be mapped to `Users` directly for fine-grained control.
     - However it should be avoided if possible to make access control flow simple to follow/understand.
 
+TODO Add screenshots
+
 ### Initial setup for KeyCloak
 
 [Read here for a detailed breakdown of KeyCloak](https://www.keycloak.org/docs/latest/authorization_services/)
@@ -218,8 +220,6 @@ Use Role-Based Access Control (RBAC) by combining `Roles`, `Groups`, and `Users`
 
 [This Postman collection](https://www.dropbox.com/scl/fi/zwkbgdl966j12u2cp1kj6/keycloak.json?rlkey=5p33nybje7m751r3ati5t15f9&dl=0)
 can be used to test the auth flow (Make sure to update the Variables like `url` and `client_secret` for the collection)
-
-TODO Add screenshots
 
 ## REST Services
 
