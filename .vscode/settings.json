@@ -2,6 +2,8 @@
   "cSpell.words": [
     "apisix",
     "Fastify",
+    "keycloak",
+    "roundrobin",
     "Tanstack",
     "unopinionated",
     "userinfo",

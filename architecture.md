@@ -51,6 +51,50 @@ ApiSix can be configured through a REST API, and it also comes with a web-based 
 
 TODO
 
+Example Route config:
+
+```yaml
+uri: /pack-and-ship/*
+name: saad-packing-shipping-backend
+plugins:
+  authz-keycloak:
+    _meta:
+      disable: false
+    client_id: apisix
+    client_secret: ${{CLIENT_SECRET}}
+    discovery: http://${{KEYCLOAK_IP:PORT}}/realms/wimetrix/.well-known/uma2-configuration
+    lazy_load_paths: true
+  cors:
+    _meta:
+      disable: false
+    allow_credential: false
+    allow_headers: "*"
+    allow_methods: "*"
+    allow_origins: "*"
+    expose_headers: "*"
+    max_age: 5
+  proxy-rewrite:
+    regex_uri:
+      - ^/pack-and-ship/(.*)$
+      - /$1
+  serverless-pre-function:
+    functions:
+      - >-
+        return function() local core = require "apisix.core"; local token =
+        "test"; if not token then ngx.status = 500; ngx.say('{ "error":
+        "env_missing", "error_description": "env APISIX_TOKEN not found" }');
+        ngx.exit(ngx.HTTP_OK); end core.request.set_header("x-apisix-token",
+        token); end
+    phase: before_proxy
+upstream:
+  nodes:
+    - host: 10.0.0.42
+      port: 5006
+      weight: 1
+  type: roundrobin
+status: 1
+```
+
 ## KeyCloak
 
 KeyCloak is an Identity and Access Management solution.
