@@ -55,7 +55,7 @@ Example Route config:
 
 ```yaml
 uri: /pack-and-ship/*
-name: saad-packing-shipping-backend
+name: packing-shipping-backend
 plugins:
   authz-keycloak:
     _meta:
@@ -119,7 +119,7 @@ All applications authenticate directly or indirectly through KeyCloak.
 
 ### Auth Flow
 
-Frontend applications authenticate directly with KeyCloak thorough Openid-compliant REST API interfaces.
+Frontend applications authenticate directly with KeyCloak through Openid-compliant REST API interfaces.
 
 - Users login with a familiar username/password method from the login page
 - Upon successful authentication, The application receives an `Access Token`, a `Refresh Token`, and `User Info` for the authenticated user
