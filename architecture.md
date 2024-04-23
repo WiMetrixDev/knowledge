@@ -102,6 +102,10 @@ Frontend applications authenticate directly with KeyCloak thorough Openid-compli
   - open the `realm roles` mapper
   - Set `Add to access token` to `true`
 
+### User Access Management With KeyCloak
+
+TODO
+
 ## REST Services
 
 The Backend applications are divided into many independent REST microservices.
