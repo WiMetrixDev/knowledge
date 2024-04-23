@@ -6,12 +6,12 @@ This document breaks down WiMetrix's application architecture. We will describe 
 
 ### The Pieces
 
-- **ApiSix**: Api gateway, Ingress controller
-- **KeyCloak**: Authentication and Authorization provider
-- **REST Services**: Microservice based REST API network
-- **Frontend Applications**: React based Single Page Applications (SPA)
-- **Mobile Apps**: React native based mobile and tablet applications
-- **Desktop Applications**: Electron based desktop applications written with web technologies
+- **[ApiSix](#apisix)**: Api gateway, Ingress controller
+- **[KeyCloak](#keycloak)**: Authentication and Authorization provider
+- **[REST Services](#rest-services)**: Microservice based REST API network
+- **[Frontend Applications](#frontend-applications)**: React based Single Page Applications (SPA)
+- **[Mobile Apps](#mobile-applications)**: React native based mobile and tablet applications
+- **[Desktop Applications](#desktop-applications)**: Electron based desktop applications written with web technologies
 
 ## Architecture Diagram
 
