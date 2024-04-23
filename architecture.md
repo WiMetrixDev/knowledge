@@ -1,8 +1,8 @@
-# Web Application Architecture
+# Application Architecture
 
 ## Intro
 
-This document breaks down WiMetrix's web application architecture. We will describe the pieces that make up our architecture. We will also detail how these pieces fit in together to create make sure our web applications are fast, secure, and reliable.
+This document breaks down WiMetrix's application architecture. We will describe the pieces that make up our architecture. We will also detail how these pieces fit in together to create make sure our web applications are fast, secure, and reliable.
 
 ### The Pieces
 
