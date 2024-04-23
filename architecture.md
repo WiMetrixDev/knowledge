@@ -41,7 +41,25 @@ ApiSix can be configured through a REST API, and it also comes with a web-based 
 
 ## KeyCloak
 
-### Auth For The Frontend
+KeyCloak is an Identity and Access Management solution. It is based on open standards like OpenID Connect, UMA, OAuth 2.0, and SAML.
+
+KeyCloak provides:
+
+- Single-Sign On
+- User federation
+- Strong authentication
+- User management
+- Fine-grained authorization
+- Integrations with 3rd party auth/identity providers
+- Social Login
+
+KeyCloak can be managed through an Admin UI, as well as through a REST API.
+
+### Where it fits in
+
+KeyCloak handles every aspect of user authentication and authorization in our architecture. All applications authenticate directly or indirectly through KeyCloak.
+
+### Auth Flow
 
 Frontend applications authenticate directly with KeyCloak thorough Openid-compliant REST API interfaces.
 
@@ -56,6 +74,8 @@ Frontend applications authenticate directly with KeyCloak thorough Openid-compli
 - `Access Token` is forwarded in the Authorization header as a bearer token with every call to the backend services
 - The API Gateway redirects the request to `KeyCloak` to be authorized
 - The request is forwarded only if the token is valid and the user is authorized to access the route
+- ApiSix which sits between the user/client and the services and redirects to KeyCloak for auth
+- Backend services are only accessible through ApiSix
 
 ### Setting up KeyCloak
 
@@ -84,6 +104,11 @@ Frontend applications authenticate directly with KeyCloak thorough Openid-compli
 
 ## REST Services
 
+The Backend applications are divided into many independent REST microservices.
+Each microservice has a narrow scope and can be independently deployed.
+
+The backend services use the following tech stack:
+
 - **JavaScript**: Our backend programming language of choice
 - **TypeScript**: Type-safe JavaScript
 - **Node.js**: JavaScript Runtime for the backend services
@@ -91,6 +116,30 @@ Frontend applications authenticate directly with KeyCloak thorough Openid-compli
 
 ## Frontend Applications
 
+Frontend Web applications are written in react as Single Page Applications.
+They access the server/db through the backend services.
+The frontend is decoupled from the server side logic and can be deployed independently of the backend services.
+
+The frontend applications use the following tech stack:
+
 - **JavaScript**: The programming language of the web
 - **TypeScript**: Type-safe JavaScript
 - **React**: Frontend library for JavaScript
+- **Tanstack Router**: Routing framework
+- **Material UI**: Component Library and Design System
+
+## Mobile Applications
+
+Mobile and Tablet applications are developed in React Native.
+This enables easy cross-platform availability and code reuse with the web frontend.
+It also allows us to streamline our tech stack and unify on a JavaScript/TypeScript Stack.
+This also enables us to integrate the mobile applications tightly into the monorepo architecture.
+
+The apps use the following tech stack:
+
+- **JavaScript**: The programming language of the web
+- **TypeScript**: Type-safe JavaScript
+- **React**: Frontend library for JavaScript
+- **React Native**: Native components and JS-Native bridge to translate javascript into native code
+- **Expo**: React Native meta-framework providing builtin workflows and libraries to cut down on boilerplate and compatibility issues
+- **React Native Paper**: Component Library and Design System
