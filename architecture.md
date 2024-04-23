@@ -2,7 +2,8 @@
 
 ## Intro
 
-This document breaks down WiMetrix's application architecture. We will describe the pieces that make up our architecture. We will also detail how these pieces fit in together to create make sure our web applications are fast, secure, and reliable.
+This document breaks down WiMetrix's application architecture. We will describe the pieces that make up our architecture.
+We will also detail how these pieces fit in together to create make sure our web applications are fast, secure, and reliable.
 
 ### The Pieces
 
@@ -33,7 +34,8 @@ ApiSix provides rich traffic management features like:
 - Observability
 - Canary Release
 
-ApiSix offers these features by integrating with popular 3rd party libraries. This modular design enables us to integrate existing tools and workflows into ApiSix with ease.
+ApiSix offers these features by integrating with popular 3rd party libraries.
+This modular design enables us to integrate existing tools and workflows into ApiSix with ease.
 
 ApiSix can be configured through a REST API, and it also comes with a web-based dashboard.
 
@@ -45,9 +47,14 @@ ApiSix can be configured through a REST API, and it also comes with a web-based 
 - Enable zero config load balancing
 - Provide simple setups for logging, monitoring, and observability
 
+### Setting up a route with ApiSix
+
+TODO
+
 ## KeyCloak
 
-KeyCloak is an Identity and Access Management solution. It is based on open standards like OpenID Connect, UMA, OAuth 2.0, and SAML.
+KeyCloak is an Identity and Access Management solution.
+It is based on open standards like OpenID Connect, UMA, OAuth 2.0, and SAML.
 
 KeyCloak provides:
 
@@ -63,7 +70,8 @@ KeyCloak can be managed through an Admin UI, as well as through a REST API.
 
 ### Where it fits in
 
-[KeyCloak](https://www.keycloak.org/) handles every aspect of user authentication and authorization in our architecture. All applications authenticate directly or indirectly through KeyCloak.
+[KeyCloak](https://www.keycloak.org/) handles every aspect of user authentication and authorization in our architecture.
+All applications authenticate directly or indirectly through KeyCloak.
 
 ### Auth Flow
 
@@ -83,31 +91,6 @@ Frontend applications authenticate directly with KeyCloak thorough Openid-compli
 - ApiSix which sits between the user/client and the services and redirects to KeyCloak for auth
 - Backend services are only accessible through ApiSix
 
-### Setting up KeyCloak
-
-- Deploy the KeyCloak container
-- Access the admin UI (the default port is `8080`)
-- Create a realm called `wimetrix`. We will use them realm for our auth
-- Setup `Users`, `Groups`, and `Realm Roles`.
-- Minimum and Maximum `Refresh Token` age can be changed from `Realm settings > Sessions > SSO Session Settings`
-- Minimum and Maximum `Access Token` age can be changed from `Realm Settings > Tokens > Access Tokens`
-- Go to `Realm Settings > Token > Refresh Tokens`
-  - Set `Revoke Refresh Token` to `true`
-  - Set `Refresh Token Max Reuse` to `1`
-- Add a client scope called groups, to return the user's groups in user info routes
-  - Type should stay none and it should not be included in the token scope.
-  - Add a `Group Membership` mapper called groups (it is not present in predefined mappers)
-  - Add to Token claim `groups`
-  - Add the scope to `user info` and `token introspection`
-- Add a client scope called user_id, to return the user's id in user info routes
-  - Type should stay none and it should not be included in the token scope.
-  - Add a `User Property` mapper (it is not present in predefined mappers)
-  - Add to Token claim `user_id`
-  - Add the scope to `access token`, `user info` and `token introspection`
-- Go to the Client Scope called `roles`
-  - open the `realm roles` mapper
-  - Set `Add to access token` to `true`
-
 ### User Access Management With KeyCloak
 
 KeyCloak is an unopinionated and general purpose tool and allows many different general purpose entities.
@@ -116,14 +99,81 @@ These entities can be mixed and matched to fit specific organizational structure
 Here's our recommended setup:
 Use Role-Based Access Control (RBAC) by combining `Roles`, `Groups`, and `Users`.
 
-- **`Role`**: A specific and narrow permission. Usually maps with an action to be performed. (`get production order`, `lock packing list`, `delete pack jobs`, `approve packing list`)
+- **`Role`**: A specific and narrow permission. Usually maps with an action to be performed.
+  - Examples: (`get production order`, `lock packing list`, `delete pack jobs`, `approve packing list`)
   - It is possible to create composite roles that combine several other roles into a super role
 - **`Group`**: A user type or an organization role.
   - As the name suggest, groups combine many permissions(`Roles`) under a single name
   - Assign one or many `Roles` to each `Group`
 - **`User`**: A system user. Users can be assigned one or more `Groups`.
   - A user with an assigned groups inherits all the `Roles` assigned to the group
-  - `Roles` can also be mapped to `Users` directly for fine-grained control. However it should be avoided if possible to make access control flow simple to follow/understand.
+  - `Roles` can also be mapped to `Users` directly for fine-grained control.
+    - However it should be avoided if possible to make access control flow simple to follow/understand.
+
+### Initial setup for KeyCloak
+
+[Read here for a detailed breakdown of KeyCloak](https://www.keycloak.org/docs/latest/authorization_services/)
+
+- Deploy the KeyCloak container
+- Access the admin UI (the default port is `8080`)
+- Create a realm called `wimetrix`. We will use them realm for our auth
+- Setup `Users`, `Groups`, and `Realm Roles`. (See: [User Access Management](#user-access-management-with-keycloak))
+- Minimum and Maximum `Refresh Token` age can be changed from `Realm settings > Sessions > SSO Session Settings`
+- Minimum and Maximum `Access Token` age can be changed from `Realm Settings > Tokens > Access Tokens`
+- Go to `Realm Settings > Token > Refresh Tokens`
+  - Set `Revoke Refresh Token` to `true`
+  - Set `Refresh Token Max Reuse` to `1`
+- Add a client scope called `groups`, to return the user's groups in user info routes
+  - **Type** should stay `none`
+  - Set `Display on consent screen` to `false`
+  - Set `Include in token scope` to `false`
+  - Add a `Group Membership` mapper called `groups` (it is not present in predefined mappers)
+  - Add to Token claim `groups`
+  - Add to `user info` and `token introspection`
+- Add a `Client Scope` called `user_id`, to return the user's id in user info routes
+  - Type should stay `none`
+  - Set `Display on consent screen` to `false`
+  - Set `Include in token scope` to `false`
+  - Add a `User Property` mapper (it is not present in predefined mappers)
+  - Set `user_id` as the value for `Name` and `Token Claim Name`
+  - Set `id` as the value for `Property`
+  - Set `Full group path` to `false`
+  - Add to `access token`, `user info` and `token introspection`
+- Go to the `Client Scope` called `roles`
+  - Open the `realm roles` mapper
+    - Set `Add to access token` to `true`
+    - Set `Add to userinfo` to `true`
+  - Open the `client roles` mapper
+    - Set `Add to access token` to `true`
+    - Set `Add to token introspection` to `true`
+- Create A client for the frontend applications
+  - Set `Client ID` and `Name` to `frontend`
+  - Make sure `Client Authentication` and `Authorization` Stay off
+  - Keep only `Direct access grants` checked in `Authentication flow`
+  - In `Client scopes`, add `user_id` and `groups` with assigned type `Default`
+- Create A client for ApiSix
+  - Set `Client ID` and `Name` to `apisix`
+  - Set `Client Authentication` and `Authorization` to `true`
+  - Uncheck everything in `Authentication flow`
+  - In `Client scopes`, add `user_id` and `groups` with assigned type `Default`
+  - Make
+  - Setup Authorization by going to the `Authorization` tab
+    - In the settings tab:
+      - `Policy Enforcement` should be `Enforcing`
+      - `Decision Strategy` should be `Unanimous`
+      - `Remote Resource Management` should be `off`
+    - In the `Resources` tab
+      - Delete `Default Resource`
+      - Add Resources for all routes uris
+    - In the `Policies` tab
+      - Define all access policies
+      - Prefer Using `Role` type policies
+    - In `Permissions` tab
+      - Map all `Resources` to one or more `Policies`
+- Go to `Authentication` > `Required actions` and uncheck all required actions
+
+[This Postman collection](https://www.dropbox.com/scl/fi/zwkbgdl966j12u2cp1kj6/keycloak.json?rlkey=5p33nybje7m751r3ati5t15f9&dl=0)
+can be used to test the auth flow (Make sure to update the Variables like `url` and `client_secret` for the collection)
 
 TODO Add screenshots
 
@@ -169,7 +219,7 @@ The apps use the following tech stack:
 - **[TypeScript](https://www.typescriptlang.org/)**: Type-safe JavaScript
 - **[React](https://react.dev)**: Frontend library for JavaScript
 - **[React Native](https://reactnative.dev)**: Native components and JS-Native bridge to translate javascript into native code
-- **[Expo](https://expo.dev)**: React Native meta-framework providing builtin workflows and libraries to cut down on boilerplate and compatibility issues
+- **[Expo](https://expo.dev)**: React Native meta-framework providing builtin workflows and libraries
 - **[React Native Paper](https://reactnativepaper.com/)**: Component Library and Design System
 
 ## Desktop Applications
