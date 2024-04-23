@@ -4,7 +4,7 @@
 
 This document breaks down WiMetrix's web application architecture. We will describe the pieces that make up our architecture. We will also detail how these pices fit in together to create make sure our web applications are fast, secure, and reliable.
 
-### The Pieces:
+### The Pieces
 
 - **ApiSix**: Api gateway, Ingress controller
 - **KeyCloak**: Authentication and Authorization provider
@@ -57,7 +57,7 @@ KeyCloak can be managed through an Admin UI, as well as through a REST API.
 
 ### Where it fits in
 
-KeyCloak handles every aspect of user authentication and authorization in our architecture. All applications authenticate directly or indirectly through KeyCloak.
+[KeyCloak](https://www.keycloak.org/) handles every aspect of user authentication and authorization in our architecture. All applications authenticate directly or indirectly through KeyCloak.
 
 ### Auth Flow
 
@@ -109,10 +109,10 @@ Each microservice has a narrow scope and can be independently deployed.
 
 The backend services use the following tech stack:
 
-- **JavaScript**: Our backend programming language of choice
-- **TypeScript**: Type-safe JavaScript
-- **Node.js**: JavaScript Runtime for the backend services
-- **Fastify**: Node.js framework for the backend services
+- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**: Our backend programming language of choice
+- **[TypeScript](https://www.typescriptlang.org/)**: Type-safe JavaScript
+- **[Node.js](https://nodejs.org/)**: JavaScript Runtime for the backend services
+- **[Fastify](https://fastify.io)**: Node.js framework for the backend services
 
 ## Frontend Applications
 
@@ -122,11 +122,14 @@ The frontend is decoupled from the server side logic and can be deployed indepen
 
 The frontend applications use the following tech stack:
 
-- **JavaScript**: The programming language of the web
-- **TypeScript**: Type-safe JavaScript
-- **React**: Frontend library for JavaScript
-- **Tanstack Router**: Routing framework
-- **Material UI**: Component Library and Design System
+- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**: The programming language of the web
+- **[TypeScript](https://www.typescriptlang.org/)**: Type-safe JavaScript
+- **[React](https://react.dev)**: Frontend library for JavaScript
+- **[Tanstack Router](https://tanstack.com/router)**: Routing framework
+- **[Material UI](https://mui.com/)**: Component Library and Design System
+- **[Apache ECharts](https://echarts.apache.org/en/index.html)**: Chart and Visualization components
+- **[Material React Table](https://www.material-react-table.com/)**: Data Grid and table component and hook
+- **[Vite](https://vitejs.dev/)**: Dev Server and Bundler
 
 ## Mobile Applications
 
@@ -137,9 +140,21 @@ This also enables us to integrate the mobile applications tightly into the monor
 
 The apps use the following tech stack:
 
-- **JavaScript**: The programming language of the web
-- **TypeScript**: Type-safe JavaScript
-- **React**: Frontend library for JavaScript
-- **React Native**: Native components and JS-Native bridge to translate javascript into native code
-- **Expo**: React Native meta-framework providing builtin workflows and libraries to cut down on boilerplate and compatibility issues
-- **React Native Paper**: Component Library and Design System
+- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**: The programming language of the web
+- **[TypeScript](https://www.typescriptlang.org/)**: Type-safe JavaScript
+- **[React](https://react.dev)**: Frontend library for JavaScript
+- **[React Native](https://reactnative.dev)**: Native components and JS-Native bridge to translate javascript into native code
+- **[Expo](https://expo.dev)**: React Native meta-framework providing builtin workflows and libraries to cut down on boilerplate and compatibility issues
+- **[React Native Paper](https://reactnativepaper.com/)**: Component Library and Design System
+
+## Desktop Applications
+
+We aim to avoid desktop applications, preferring instead to go with web applications.
+For use-cases where a desktop applications are required, we develop them with Electron.js.
+This enables us to use web technologies to build the application, which keeps our tech stack unified.
+
+The desktop applications use the following tech stack:
+
+- Uses the frontend tech stack. (See: [Frotend Applications](#frontend-applications))
+- **[Electron](https://www.electronjs.org/)**: Cross-platform desktop apps with web technologies
+- **[Electron Forge](https://www.electronforge.io/)**: Tool to scaffold, build, and publish electron applications
