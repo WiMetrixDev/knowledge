@@ -2,14 +2,20 @@
 
 ## Intro
 
-This document breaks down WiMetrix's web application architecture. We will describe the pieces that make up our architecture. We will also detail how these pices fit in together to create make sure our web applications are fast, secure, and reliable.
+This document breaks down WiMetrix's web application architecture. We will describe the pieces that make up our architecture. We will also detail how these pieces fit in together to create make sure our web applications are fast, secure, and reliable.
 
 ### The Pieces
 
 - **ApiSix**: Api gateway, Ingress controller
 - **KeyCloak**: Authentication and Authorization provider
 - **REST Services**: Microservice based REST API network
-- **Frontend Application**: React based Single Page Applications (SPA)
+- **Frontend Applications**: React based Single Page Applications (SPA)
+- **Mobile Apps**: React native based mobile and tablet applications
+- **Desktop Applications**: Electron based desktop applications written with web technologies
+
+## Architecture Diagram
+
+TODO
 
 ## ApiSix
 
@@ -159,6 +165,6 @@ This enables us to use web technologies to build the application, which keeps ou
 
 The desktop applications use the following tech stack:
 
-- Uses the frontend tech stack. (See: [Frotend Applications](#frontend-applications))
+- Uses the frontend tech stack. (See: [Frontend Applications](#frontend-applications))
 - **[Electron](https://www.electronjs.org/)**: Cross-platform desktop apps with web technologies
 - **[Electron Forge](https://www.electronforge.io/)**: Tool to scaffold, build, and publish electron applications
