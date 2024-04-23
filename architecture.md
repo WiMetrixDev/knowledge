@@ -88,7 +88,7 @@ Frontend applications authenticate directly with KeyCloak thorough Openid-compli
 - Deploy the KeyCloak container
 - Access the admin UI (the default port is `8080`)
 - Create a realm called `wimetrix`. We will use them realm for our auth
-- Setup `Users`, `Groups`, and `Realm Roles`
+- Setup `Users`, `Groups`, and `Realm Roles`.
 - Minimum and Maximum `Refresh Token` age can be changed from `Realm settings > Sessions > SSO Session Settings`
 - Minimum and Maximum `Access Token` age can be changed from `Realm Settings > Tokens > Access Tokens`
 - Go to `Realm Settings > Token > Refresh Tokens`
@@ -110,7 +110,22 @@ Frontend applications authenticate directly with KeyCloak thorough Openid-compli
 
 ### User Access Management With KeyCloak
 
-TODO
+KeyCloak is an unopinionated and general purpose tool and allows many different general purpose entities.
+These entities can be mixed and matched to fit specific organizational structures.
+
+Here's our recommended setup:
+Use Role-Based Access Control (RBAC) by combining `Roles`, `Groups`, and `Users`.
+
+- **`Role`**: A specific and narrow permission. Usually maps with an action to be performed. (`get production order`, `lock packing list`, `delete pack jobs`, `approve packing list`)
+  - It is possible to create composite roles that combine several other roles into a super role
+- **`Group`**: A user type or an organization role.
+  - As the name suggest, groups combine many permissions(`Roles`) under a single name
+  - Assign one or many `Roles` to each `Group`
+- **`User`**: A system user. Users can be assigned one or more `Groups`.
+  - A user with an assigned groups inherits all the `Roles` assigned to the group
+  - `Roles` can also be mapped to `Users` directly for fine-grained control. However it should be avoided if possible to make access control flow simple to follow/understand.
+
+TODO Add screenshots
 
 ## REST Services
 
