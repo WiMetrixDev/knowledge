@@ -195,7 +195,9 @@ TODO Add screenshots
 - Create A client for the frontend applications
   - Set `Client ID` and `Name` to `frontend`
   - Make sure `Client Authentication` and `Authorization` Stay off
-  - Keep only `Direct access grants` checked in `Authentication flow`
+  - Keep `Standard flow` and `Direct access grants` checked in `Authentication flow`
+  - Set `Valid redirect URIs` to your frontend url (Set `/*` in dev)
+  - Set `Web origins` to your frontend url (Set `*` in dev)
   - In `Client scopes`, add `user_id` and `groups` with assigned type `Default`
 - Create A client for ApiSix
   - Set `Client ID` and `Name` to `apisix`
