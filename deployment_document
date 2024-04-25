@@ -1,0 +1,103 @@
+Comprehensive Services Deployment Document
+##Introduction
+This document serves as a comprehensive guide to the deployment and maintenance of our infrastructure services. It is intended for use by any relevant stakeholders.
+
+##Scope of Services
+The services covered by this document include our web servers, databases, network infrastructure, and security systems. This encompasses both hardware and software components, as well as any third-party services we utilize.
+
+##Deployment Strategy
+#Deployment Objectives:Aim to minimize downtime, enhance reliability, scalability, security, efficiency, enable rollbacks, ensure compliance, improve monitoring, and support continuous delivery while facilitating collaboration.
+#Phased Deployment Plan: Outline the phased approach to deploying services, including timelines and milestones.
+#Rollback and Recovery Strategy: Describe the strategy for rolling back deployments and recovering from failures.
+
+###Windows-Based Services Deployment
+
+##Microsoft SQL Server (MSSQL)
+#Service Overview: Microsoft SQL is a database service to store data in the form of tables.
+#Pre-deployment Requirements: Windows operating system, Microsoft SQL server.
+#Installation and Configuration Steps: Detailed steps for installing and configuring MSSQL server.
+#Backup and Disaster Recovery: 
+1.	Full Backup
+  a.	Maintenance Plan is scheduled to take full backups every 8 hours. Full backups Older than 2 Weeks are automatically deleted from Main Server. 
+2.	Transactional Log Backup 
+  a.	Monitor transaction log growth and disk space utilization to avoid potential issues. Transactional log Backups for Production databases on Main Server. Customer is responsible for transition of Transactional log backups 
+
+###Linux-Based Services Deployment
+
+##Frontend Application
+#Service Overview: Frontend application and the main interface of our application for end user
+#Technology Stack Description: React is stack for the application for user interface and user experince
+#Deployment Process: Frontend application is deployed on Linux centralized server using isolated docker container with available port binding. 
+#Environment Configuration: For frontend deployment a customized docker file available with frontend code repository.
+#Continuous Integration and Deployment: Describe the CI/CD process for the frontend application.
+
+##Backend Services
+#Service Overview: backend service and running as a backbone of the application.
+#Technology Stack Description: For backend service we are using node as a stack.
+#Deployment Process: Backend of application is deployed on Linux centralized server using isolated docker container with available port binding.
+#API Management with APISIX: For connection with frontend and backend we are using APISIX as a gateway.
+
+##APISIX
+#Service Overview: APISIX is an API gateway for integration and authentication of users.
+#Installation and Configuration Steps: APISIX is installed on centralized Linux server using docker container and port binding for connection .
+#Routing and Load Balancing: Base of prefix, APISIX handle request between frontend and backend.
+#Plugins and Extensions: Keycloak is using for user authentication.
+
+##Jupyter/Pyspark
+#Service Overview: Jupyter/Pyspark is a used to Big data processing in an optimized strategy .
+#Installation and Configuration Steps: Pyspark is deployed with isolated docker container on a centralized server.
+#Integration with Data Sources: Microsoft SQL is the data source for Pyspark to handle huge amount of industry data.
+#Resource Allocation and Scaling: Volumes are mounted with centralized docker container for source and target connection drivers.
+
+##MQTT Broker
+#Service Overview: An MQTT broker is a server that facilitates communication between MQTT clients by
+receiving messages from clients and distributing them to the appropriate destinations.
+#Installation and Configuration Steps: MQTT is deployed with isolated docker container on a centralized server.
+#Publisher/Subscriber Model Explanation:
+  1-	logging errors of scanning in real time.
+  2 -	rgb light 🚦 control through SQMS application.
+
+##Keycloak
+#Service Overview: Keycloak sevice is working as a user manager service.
+#Installation and Configuration Steps: Keycloak is deployed with isolated docker container on a centralized server with port binding on host machine.
+#User and Role Management:
+There are 3 types of user management available in Keycloak
+  1.	Role Based
+  2.	Group Based
+  3.	User Based
+#Security and Authentication Mechanisms: Securing Frontend and Backend routes with APISIX using Keycloak user managment.
+#Integration with Other Services: Keycloak is integrated with APISIX and Microsoft SQL database for back and forth user management.
+
+##Ansible for Configuration Management
+#Service Description and Automation Role: Ansible plays a major role in seamless deployment for our end working nodes.
+#Ansible Architecture and Components: Ansible is running on centralized windows server and working nodes are connected with that centralized server to manage and deploy all offline services.
+#Playbook Creation and Execution: Playbooks are created with docker integrated files. These integrated docker files will execute with using ansible playbook.
+#Worker Node Management and Deployment Automation: For any type of update on worker node or if is any new worker node will add, we only need to run playbook using inventory file.
+
+##Security and Compliance
+#General Security Framework: Implementing a layered defense strategy that includes measures such as firewalls, intrusion detection systems, and regular vulnerability assessments..
+#Compliance with Industry Standards: Adherence to standards such as ISO 27001, GDPR, and HIPAA ensures that sensitive data is handled appropriately.
+#Service-Specific Security Considerations: Depending on the service, additional security measures may be necessary. For example, a web service might require SSL/TLS encryption for data in transit..
+
+##Maintenance and Monitoring
+#Routine Maintenance Tasks: Regular system updates, patch management, and backups are crucial for maintaining system integrity and availability..
+#Monitoring Tools and Strategies: Tools like Nagios or Zabbix can be used for system monitoring, while strategies might include setting up alerts for unusual activity and regularly reviewing system logs..
+#Performance Metrics and Alerts: Key performance indicators (KPIs) might include system uptime, response time, and error rates. Alerts should be set up to notify the appropriate personnel if these metrics fall outside of acceptable ranges..
+
+###Data Collection and Management
+
+##Tiznp Service Integration
+#Connects with Various Data Sources: Description of how Tiznp Service Integration connects with various data sources.
+#Processes and Normalizes Data for Uniformity: Description of how Tiznp Service Integration processes and normalizes data.
+
+##Sooperwizer API
+#Provides Real-Time Data Monitoring: It is responsible for RFID scan from RIFD box..
+#Enables Data Quality Supervision: It is responsible for RFID scan from RIFD box..
+##Local MSSQL Docker Container
+#Hosts the MSSQL Database Locally: Hosting MSSQL on Worker node PCs allow to collect data and stored if there is any dis connectivity between centralized database and worker node PCs .
+#Ensures Data Persistence and Security: Host machine volume is mounted with MSSQL container for data persistence and security for every node PC .
+
+##Conclusion
+#Deployment Summary: A review of the deployment process, including any challenges encountered and how they were addressed..
+#Future Roadmap and Enhancements: Plans for future updates or enhancements, such as new features or performance improvements.
+#Support and Contact Information: Information on how to obtain support, such as a helpdesk email address or phone number.
