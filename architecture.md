@@ -16,7 +16,7 @@ We will also detail how these pieces fit in together to create make sure our web
 
 ## Architecture Diagram
 
-TODO
+![Architecture Diagram](architecture-diagram.jpg)
 
 ## ApiSix
 
